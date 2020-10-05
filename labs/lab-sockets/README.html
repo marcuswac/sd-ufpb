@@ -20,11 +20,18 @@
 </head>
 <body>
 <h1 id="prática-sockets-tcp-e-udp">Prática: Sockets TCP e UDP</h1>
+<h2 id="pré-requisitos">Pré-requisitos</h2>
+<ul>
+<li><code>git</code></li>
+<li>Java 8+ (JDK)</li>
+</ul>
+<h2 id="início">Início</h2>
 <p>Investigue os códigos dos clientes e servidores TCP e UDP. Em seguida, execute os códigos e entenda o que está acontecendo.</p>
 <p>O código está localizado no diretório <code>src</code> e os executáveis no diretório <code>bin</code>. Se precisar recompilar o código na interface de linha de comando, entre no diretório raíz do projeto e execute o comando abaixo:</p>
 <pre><code>javac src/* -d bin
 </code></pre>
 <p>OBS: se não funcionar no Windows, tente substituir a barra (<code>/</code>) por contra-barra (<code>\</code>).</p>
+<p>As implementações do sistema TCP e UDP não se comunicam e são dois sistemas diferentes. Quando for realizar os testes, rode o sistema de um protocolo de cada vez. O cliente TCP só fala com o servidor TCP e o cliente UDP só fala com o servidor UDP. Além disso, sempre rode o servidor antes de rodar seus clientes.</p>
 <h2 id="exemplo-socket-tcp">Exemplo Socket TCP</h2>
 <p>O exemplo de socket TCP possui dois arquivos: <code>SimpleTCPServer.java</code> e <code>SimpleTCPClient.java</code>. Analise o código das duas classes e em seguida execute o exemplo, rodando primeiro o servidor e depois o cliente.</p>
 <p>Para executar o servidor TCP na linha de comando, rode:</p>
@@ -40,24 +47,9 @@
 <pre><code>java -cp bin SimpleUDPServer
 </code></pre>
 <p>Para executar o cliente UDP na linha de comando, rode:</p>
-<pre><code>java -cp bin SimpleTCPClient
+<pre><code>java -cp bin SimpleUDPClient
 </code></pre>
 <p>Em seguida, digite na linha de comando do cliente a mensagem que desejar enviar para o servidor e veja o que acontece. Analise novamente o código para identificar cada passo do que acontece.</p>
-<h2 id="pergunta-moodle">Pergunta (Moodle)</h2>
-<p>Q1) Os dois sistemas (TCP e UDP) são iguais em relação à funcionalidade. Mas, em termos de implementação e garantias existem diferenças. Sobre isso, responda as questões abaixo:</p>
-<p>a. O que muda em termos de implementação da comunicação no código do cliente/servidor UDP em relação ao do cliente/servidor TCP?</p>
-<p>b. O que muda em termos de confiabilidade e desempenho entre os dois?</p>
-<p>c. Considere 3 primitivas de comunicação TCP usadas no exemplo: <code>accept</code>, <code>readUTF</code> e <code>writeUTF</code>. Quais delas são chamadas síncronas e quais são assíncronas? Justifique.</p>
-<p>d. Considere 2 primitivas de comunicação UDP usadas no exemplo: <code>read</code> e <code>write</code>. Quais delas são chamadas síncronas e quais são assíncronas?</p>
-<p>Q2) Tente reproduzir os seguintes passos, para cada um dos sistemas (TCP e UDP):</p>
-<ol>
-<li>Inicie um servidor <code>S</code>.</li>
-<li>Inicie um cliente <code>C1</code>, mas não digite a mensagem.</li>
-<li>Inicie outro cliente <code>C2</code>, digite uma mensagem e tente enviar.</li>
-<li>Digite a mensagem do cliente <code>C1</code> e tente enviar.</li>
-</ol>
-<p>Sobre esse teste, responda:</p>
-<p>a. Executando apenas os passos de 1 a 3, a mensagem enviada por <code>C2</code> é recebida pelo servidor? Responda tanto para o sistema TCP quanto para o UDP, descrevendo uma possível razão disso ter acontecido.</p>
-<p>b. Após executar o passo 4, as mensagens enviadas pelos clientes <code>C1</code> e <code>C2</code> são recebidas pelo servidor? E as respostas chegam aos clientes? Responda tanto para o sistema TCP quanto para o UDP, descrevendo uma possível razão disso ter acontecido.</p>
+<p>Explore diferentes situações, por exemplo, você pode rodar mais de um cliente ao mesmo tempo para ver se o servidor consegue receber conexões e mensagens simultâneas de clientes.</p>
 </body>
 </html>
