@@ -1,0 +1,6 @@
+{
+    "editor.insertSpaces": false,
+    "editor.wrappingColumn": 0,
+    "editor.quickSuggestions": false,
+    "pandoc.htmlOptString": "-s -f gfm -t html5 --css=css/style.css"
+}
