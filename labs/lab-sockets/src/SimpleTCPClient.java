@@ -12,8 +12,7 @@ public class SimpleTCPClient {
     public void start(String serverIp, int serverPort) throws IOException {
         // Cria socket de comunicacao com o servidor e obtem canais de entrada e saida
         System.out.println("[C1] Conectando com servidor " + serverIp + ":" + serverPort);
-        socket = new Socket();
-        socket.con
+        socket = new Socket(serverIp, serverPort);
         input = new DataInputStream(socket.getInputStream());
         output = new DataOutputStream(socket.getOutputStream());
 
